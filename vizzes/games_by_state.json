@@ -1,0 +1,22 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 500,
+    "height": 400,
+    "data": {
+        "url": "data/stadium.csv",
+        "format": {"type": "csv"}
+    },
+    "title": "Total Number of AFL Games by State ",
+    "mark": "bar",
+    "encoding": {
+        "y": {"field": "State", "type": "nominal", "sort": "-x",
+            "axis": {"title": "State"}
+        },
+        "x": {"aggregate": "sum", "field": "Games", "type": "quantitative",
+            "axis": {
+                "title": "Total games",
+                "format": ",.0f"
+            }
+        }
+    }
+}
