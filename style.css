@@ -1,0 +1,10 @@
+@import url('https://googleapis.com');
+
+.h1 {
+    background-color: peachpuff;
+    text-align: center;
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200px;
+    font-style: normal;
+}
