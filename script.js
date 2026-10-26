@@ -1,9 +1,13 @@
 var vg1 = "vizzes/afl_games_by_state.json"
 var vg2 = "vizzes/stadium_states_map.json"
 var vg3 = "vizzes/stadium_type_map.json"
+var vg4 = "vizzes/stadium_per_capita_map.json"
+var vg5 = "vizzes/average_capacity_by_type.json"
 
 vegaEmbed("#vis1", vg1).catch(console.error);
 vegaEmbed("#vis2", vg2).catch(console.error);
+vegaEmbed("#vis4", vg4).catch(console.error);
+vegaEmbed("#vis5", vg5).catch(console.error);
 vegaEmbed("#vis3", vg3).then(({view}) => {
 	const canvas = document.querySelector("#vis3 canvas");
 	if (!canvas) return;

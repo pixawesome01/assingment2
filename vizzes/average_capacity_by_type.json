@@ -1,0 +1,45 @@
+{
+	"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+	"width": 500,
+	"height": 300,
+	"title": "Average Stadium Capacity by Type",
+	"data": {
+		"url": "data/all_stadiums.csv",
+		"format": {
+			"type": "csv",
+			"parse": {"Capacity": "number"}
+		}
+	},
+	"transform": [
+		{
+			"aggregate": [
+				{"op": "mean", "field": "Capacity", "as": "AverageCapacity"},
+				{"op": "count", "as": "StadiumCount"}
+			],
+			"groupby": ["Shape"]
+		}
+	],
+	"mark": {
+		"type": "bar",
+		"color": "#d95f02",
+		"cornerRadiusEnd": 3
+	},
+	"encoding": {
+		"y": {
+			"field": "Shape",
+			"type": "nominal",
+			"sort": {"field": "AverageCapacity", "order": "descending"},
+			"axis": {"title": "Stadium type", "labelLimit": 220}
+		},
+		"x": {
+			"field": "AverageCapacity",
+			"type": "quantitative",
+			"axis": {"title": "Average capacity (seats)", "format": ",.0f"}
+		},
+		"tooltip": [
+			{"field": "Shape", "type": "nominal", "title": "Stadium type"},
+			{"field": "AverageCapacity", "type": "quantitative", "title": "Average capacity", "format": ",.0f"},
+			{"field": "StadiumCount", "type": "quantitative", "title": "Stadiums"}
+		]
+	}
+}
