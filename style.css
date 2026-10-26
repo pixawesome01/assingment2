@@ -8,3 +8,9 @@
     font-weight: 200px;
     font-style: normal;
 }
+
+#vis3 input[type="range"] {
+    width: 320px;
+    max-width: 70vw;
+    color: #d95f02;
+}
