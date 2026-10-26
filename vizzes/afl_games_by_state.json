@@ -3,7 +3,7 @@
     "width": 500,
     "height": 400,
     "data": {
-        "url": "data/stadium.csv",
+        "url": "data/afl_stadiums.csv",
         "format": {"type": "csv"}
     },
     "title": "Total Number of AFL Games by State ",

@@ -1,0 +1,50 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 500,
+    "height": 400,
+    "background": "#44caef",
+    "title": "Sports Stadiums Across Australia",
+    "projection": {"type": "mercator"},
+    "layer": [
+        {
+            "data": {
+                "url": "vizzes/aus_states_map.topojson",
+                "format": {
+                    "type": "topojson",
+                    "feature": "abs-states-territories-2021_2021-06-25"
+                }
+            },
+            "mark": {
+                "type": "geoshape",
+                "fill": "#2ca25f",
+                "stroke": "white",
+                "strokeWidth": 1
+            }
+        },
+        {
+            "data": {
+                "url": "data/all_stadiums.csv",
+                "format": {"type": "csv"}
+            },
+            "mark": {
+                "type": "circle",
+                "color": "#d95f02",
+                "size": 90,
+                "opacity": 0.9,
+                "stroke": "white",
+                "strokeWidth": 1
+            },
+            "encoding": {
+                "longitude": {"field": "Longitude", "type": "quantitative"},
+                "latitude": {"field": "Latitude", "type": "quantitative"},
+                "tooltip": [
+                    {"field": "Stadium", "type": "nominal"},
+                    {"field": "City", "type": "nominal"},
+                    {"field": "State", "type": "nominal"},
+                    {"field": "Capacity", "type": "quantitative", "format": ","},
+                    {"field": "Shape", "type": "nominal"}
+                ]
+            }
+        }
+    ]
+}
