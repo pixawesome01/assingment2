@@ -62,7 +62,7 @@
       "type": "quantitative",
       "title": "Average attendance",
       "scale": {
-        "scheme": "oranges"
+        "range": ["#f28e2b", "#df711b", "#c65f16", "#a94c0d", "#8c2d04"]
       },
       "legend": {
         "format": ",.0f"
@@ -100,12 +100,13 @@
     "font": "DM Sans",
     "title": {
       "font": "Manrope",
-      "fontSize": 17,
+      "fontSize": 15,
       "fontWeight": 700,
       "color": "#172b35",
       "subtitleFont": "DM Sans",
       "subtitleFontSize": 12,
-      "subtitleColor": "#5c6c73"
+      "subtitleColor": "#5c6c73",
+      "anchor": "middle"
     },
     "axis": {
       "labelFont": "DM Sans",
@@ -134,5 +135,9 @@
       "titleFontWeight": 600,
       "titleColor": "#172b35"
     }
+  },
+  "title": {
+    "text": "Average Attendance by Stadium Type and Sport",
+    "subtitle": "Event-weighted average; blank cells have no matched attendance records."
   }
 }

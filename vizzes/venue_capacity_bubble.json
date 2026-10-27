@@ -67,7 +67,20 @@
       "type": "nominal",
       "title": "Sport",
       "scale": {
-        "scheme": "tableau10"
+        "domain": [
+          "AFL",
+          "Cricket",
+          "Football",
+          "Rugby League",
+          "Rugby Union"
+        ],
+        "range": [
+          "#4e79a7",
+          "#f28e2b",
+          "#59a14f",
+          "#e15759",
+          "#b07aa1"
+        ]
       }
     },
     "tooltip": [
@@ -115,12 +128,13 @@
     "font": "DM Sans",
     "title": {
       "font": "Manrope",
-      "fontSize": 17,
+      "fontSize": 15,
       "fontWeight": 700,
       "color": "#172b35",
       "subtitleFont": "DM Sans",
       "subtitleFontSize": 12,
-      "subtitleColor": "#5c6c73"
+      "subtitleColor": "#5c6c73",
+      "anchor": "middle"
     },
     "axis": {
       "labelFont": "DM Sans",

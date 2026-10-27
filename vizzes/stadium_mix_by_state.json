@@ -93,12 +93,13 @@
     "font": "DM Sans",
     "title": {
       "font": "Manrope",
-      "fontSize": 17,
+      "fontSize": 15,
       "fontWeight": 700,
       "color": "#172b35",
       "subtitleFont": "DM Sans",
       "subtitleFontSize": 12,
-      "subtitleColor": "#5c6c73"
+      "subtitleColor": "#5c6c73",
+      "anchor": "middle"
     },
     "axis": {
       "labelFont": "DM Sans",
@@ -127,5 +128,6 @@
       "titleFontWeight": 600,
       "titleColor": "#172b35"
     }
-  }
+  },
+  "title": "Stadium Type Mix by State"
 }
