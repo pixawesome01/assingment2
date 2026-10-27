@@ -2,88 +2,6 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": "container",
   "height": 320,
-  "data": {
-    "url": "data/all_stadiums.csv",
-    "format": {
-      "type": "csv"
-    }
-  },
-  "transform": [
-    {
-      "aggregate": [
-        {
-          "op": "count",
-          "as": "StadiumCount"
-        }
-      ],
-      "groupby": [
-        "State",
-        "Shape"
-      ]
-    }
-  ],
-  "mark": {
-    "type": "bar"
-  },
-  "encoding": {
-    "x": {
-      "field": "StadiumCount",
-      "type": "quantitative",
-      "stack": "normalize",
-      "axis": {
-        "title": "Share of stadiums",
-        "format": "%",
-        "tickCount": 5
-      }
-    },
-    "y": {
-      "field": "State",
-      "type": "nominal",
-      "sort": "-x",
-      "axis": {
-        "title": "State or territory",
-        "labelLimit": 190
-      }
-    },
-    "color": {
-      "field": "Shape",
-      "type": "nominal",
-      "title": "Stadium type",
-      "scale": {
-        "domain": [
-          "Oval",
-          "Rectangular",
-          "Diamond",
-          "Convertible",
-          "Rectangular, with Athletics track"
-        ],
-        "range": [
-          "#4e79a7",
-          "#f28e2b",
-          "#59a14f",
-          "#e15759",
-          "#b07aa1"
-        ]
-      }
-    },
-    "tooltip": [
-      {
-        "field": "State",
-        "type": "nominal",
-        "title": "State or territory"
-      },
-      {
-        "field": "Shape",
-        "type": "nominal",
-        "title": "Stadium type"
-      },
-      {
-        "field": "StadiumCount",
-        "type": "quantitative",
-        "title": "Stadiums"
-      }
-    ]
-  },
   "autosize": {
     "type": "fit",
     "contains": "padding",
@@ -129,5 +47,100 @@
       "titleColor": "#172b35"
     }
   },
-  "title": "Stadium Type Mix by State"
+  "title": "Stadium Type Mix by State",
+  "layer": [
+    {
+      "data": {
+        "url": "data/all_stadiums.csv",
+        "format": {
+          "type": "csv"
+        }
+      },
+      "transform": [
+        {
+          "aggregate": [
+            {
+              "op": "count",
+              "as": "StadiumCount"
+            }
+          ],
+          "groupby": [
+            "State",
+            "Shape"
+          ]
+        }
+      ],
+      "mark": {
+        "type": "bar"
+      },
+      "encoding": {
+        "x": {
+          "field": "StadiumCount",
+          "type": "quantitative",
+          "stack": "normalize",
+          "axis": {
+            "title": "Share of stadiums",
+            "format": "%",
+            "tickCount": 5
+          }
+        },
+        "y": {
+          "field": "State",
+          "type": "nominal",
+          "sort": [
+            "Australian Capital Territory",
+            "New South Wales",
+            "Northern Territory",
+            "Queensland",
+            "South Australia",
+            "Tasmania",
+            "Victoria",
+            "Western Australia"
+          ],
+          "axis": {
+            "title": "State or territory",
+            "labelLimit": 190
+          }
+        },
+        "color": {
+          "field": "Shape",
+          "type": "nominal",
+          "title": "Stadium type",
+          "scale": {
+            "domain": [
+              "Oval",
+              "Rectangular",
+              "Diamond",
+              "Convertible",
+              "Rectangular, with Athletics track"
+            ],
+            "range": [
+              "#4e79a7",
+              "#f28e2b",
+              "#59a14f",
+              "#e15759",
+              "#b07aa1"
+            ]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "State",
+            "type": "nominal",
+            "title": "State or territory"
+          },
+          {
+            "field": "Shape",
+            "type": "nominal",
+            "title": "Stadium type"
+          },
+          {
+            "field": "StadiumCount",
+            "type": "quantitative",
+            "title": "Stadiums"
+          }
+        ]
+      }
+    }
+  ]
 }

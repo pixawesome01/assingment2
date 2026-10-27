@@ -89,7 +89,7 @@
       ],
       "mark": {
         "type": "point",
-        "color": "#000000",
+        "color": "#e15759",
         "size": 90,
         "opacity": 0.9,
         "stroke": "white",

@@ -31,7 +31,7 @@
   ],
   "mark": {
     "type": "bar",
-    "color": "#d95f02",
+    "color": "#b07aa1",
     "cornerRadiusEnd": 3
   },
   "encoding": {

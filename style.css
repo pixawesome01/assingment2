@@ -238,6 +238,13 @@ body {
     line-height: 1.6;
 }
 
+.chart-summary {
+    margin: 0 0 1rem;
+    color: var(--ink);
+    font-size: .9rem;
+    line-height: 1.6;
+}
+
 .notes-prompt {
     min-height: 84px;
     margin: 0;
@@ -263,7 +270,7 @@ body {
 
 .conclusion > p:last-child {
     margin: 0;
-    color: var(--muted);
+    color: var(--ink);
 }
 
 .site-footer {

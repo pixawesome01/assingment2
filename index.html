@@ -4,14 +4,13 @@
     <title>FIT3173 Assignment 2</title>
     <meta charset="utf-8" />
 
-    <link rel="stylesheet" href="style.css?v=13">
+    <link rel="stylesheet" href="style.css?v=16">
 
     <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
 
     <style media="screen">
-      /* Add space between Vega-Embed links  */
       .vega-actions a {
         margin-right: 20px;
       }
@@ -44,10 +43,10 @@
           <h2>What are Australia's stadiums like?</h2>
           <p>Compare stadium types, capacity and the sports hosted across different venues.</p>
         </div>
-        <article class="chart-row"><div class="chart-panel"><h3 class="chart-kicker">The dual powerhouses: oval and rectangular dominance</h3><div class="chart" id="vis1"></div></div><aside class="chart-notes"><p class="chart-insight">Ovals account for 34 of the 68 listed venues and rectangular grounds for 26. Together they make up about 88% of the dataset; diamonds and convertible venues are much less common.</p></aside></article>
-        <article class="chart-row"><div class="chart-panel"><h3 class="chart-kicker">Versatility determines crowd size</h3><div class="chart" id="vis2"></div></div><aside class="chart-notes"><p class="chart-insight">Oval venues appear across the widest range of sports in the matched attendance data. Blank cells mean no matching records were available for that sport and stadium type; they do not establish that a sport cannot use that venue type.</p></aside></article>
-        <article class="chart-row"><div class="chart-panel"><h3 class="chart-kicker">The engineering of high-demand venues</h3><div class="chart" id="vis3"></div></div><aside class="chart-notes"><p class="chart-insight">Convertible venues have the highest average listed capacity, at about 50,750 seats. There are only two such venues in this dataset, so this average describes a small group.</p></aside></article>
-        <article class="chart-row"><div class="chart-panel"><h3 class="chart-kicker">Urban concentration and coastal anchors</h3><div class="chart map-chart-rounded" id="vis4"></div></div><aside class="chart-notes"><p class="chart-insight">Stadium locations cluster around capital cities and major population centres, with fewer venues spread across regional areas. The map shows both the concentration of facilities and the distances between them.</p></aside></article>
+        <article class="chart-row"><div class="chart-panel"><h3 class="chart-kicker">The dual powerhouses: oval and rectangular dominance</h3><div class="chart" id="vis1"></div></div><aside class="chart-notes"><p class="chart-summary">Oval and rectangular stadiums dominate Australia's sporting landscape. Ovals accommodate AFL and cricket, while rectangular grounds primarily host football and rugby.</p><p class="chart-insight">Ovals account for 34 of the 68 listed venues and rectangular grounds for 26. Together they make up about 88% of the dataset; diamonds and convertible venues are much less common.</p></aside></article>
+        <article class="chart-row"><div class="chart-panel"><h3 class="chart-kicker">Versatility determines crowd size</h3><div class="chart" id="vis2"></div></div><aside class="chart-notes"><p class="chart-summary">Oval stadiums bring the widest variety of sports together, while rectangular venues serve fewer sports codes. Blank cells indicate unavailable attendance records or that the stadium is not compatible with the sport.</p><p class="chart-insight">Oval venues appear across the widest range of sports in the matched attendance data.</p></aside></article>
+        <article class="chart-row"><div class="chart-panel"><h3 class="chart-kicker">The engineering of high-demand venues</h3><div class="chart" id="vis3"></div></div><aside class="chart-notes"><p class="chart-summary">Convertible stadiums lead in average capacity, reflecting the scale of these adaptable venues. Their flexible designs accommodate different sporting events and large crowds.</p><p class="chart-insight">Convertible venues have a listed capacity, at about 50,750 seats. There are only two such venues in this dataset, so it should be noted that the average describes a small group.</p></aside></article>
+        <article class="chart-row"><div class="chart-panel"><h3 class="chart-kicker">Urban concentration and coastal anchors</h3><div class="chart map-chart-rounded" id="vis4"></div></div><aside class="chart-notes"><p class="chart-summary">Australia's stadiums cluster around capital cities and major population centres. These urban hubs bring together different venue designs, reflecting diverse sporting interests.</p><p class="chart-insight">Stadium locations cluster around capital cities and major population centres, with fewer venues spread across regional areas. The map shows both the concentration of facilities and the distances between them.</p></aside></article>
       </section>
 
       <section class="topic-section">
@@ -56,9 +55,9 @@
           <h2>How does sport vary by state?</h2>
           <p>See how stadium types, capacity and facilities are distributed around Australia.</p>
         </div>
-        <article class="chart-row"><div class="chart-panel"><h3 class="chart-kicker">Victoria leads with most types of stadiums</h3><div class="chart" id="vis5"></div></div><aside class="chart-notes"><p class="chart-insight">Victoria has the broadest mix in the dataset, including ovals, rectangular venues, a diamond and an athletics-track ground. Tasmania’s listed venues are ovals and one convertible ground; the ACT has the highest share of diamonds (1 of 4).</p></aside></article>
-        <article class="chart-row"><div class="chart-panel"><h3 class="chart-kicker">New South Wales leads the infrastructure count</h3><div class="chart map-chart-blue" id="vis6"></div></div><aside class="chart-notes"><p class="chart-insight">New South Wales has the most listed major stadiums (20), followed by Queensland (16) and Victoria (13). These are counts from this dataset, rather than a measure of venue size or population-adjusted provision.</p></aside></article>
-        <article class="chart-row"><div class="chart-panel"><h3 class="chart-kicker">Small populations, outsized grandstands</h3><div class="chart map-chart-rounded" id="vis7"></div></div><aside class="chart-notes"><p class="chart-insight">Tasmania has the highest listed capacity per resident, at about 101 seats per 1,000 people. Its smaller population raises this per-capita measure; it does not mean Tasmania has the largest total stadium capacity.</p></aside></article>
+        <article class="chart-row"><div class="chart-panel"><h3 class="chart-kicker">Victoria and NSW have the broadest mix</h3><div class="chart" id="vis5"></div></div><aside class="chart-notes"><p class="chart-summary">Australia's states reveal distinct sporting identities. Victoria showcases one of the broadest venue mixes, Tasmania includes a convertible stadium, and the ACT has the highest proportion of diamonds.</p><p class="chart-insight">Victoria and New South Wales have the broadest mix in the dataset; Victoria also has a diamond and an athletics-track ground. Tasmania’s listed venues are ovals and one convertible ground; the ACT has the highest share of diamonds (1 of 4).</p></aside></article>
+        <article class="chart-row"><div class="chart-panel"><h3 class="chart-kicker">New South Wales leads the infrastructure count</h3><div class="chart map-chart-blue" id="vis6"></div></div><aside class="chart-notes"><p class="chart-summary">New South Wales leads with 20 major stadiums, followed by Queensland and Victoria. Sporting infrastructure is concentrated unevenly across Australia's states and territories.</p><p class="chart-insight">New South Wales has the most listed major stadiums (20), followed by Queensland (16) and Victoria (13). These are counts from this dataset, rather than a measure of venue size or population-adjusted provision.</p></aside></article>
+        <article class="chart-row"><div class="chart-panel"><h3 class="chart-kicker">Small populations, outsized grandstands</h3><div class="chart map-chart-rounded" id="vis7"></div></div><aside class="chart-notes"><p class="chart-summary">Size isn't everything. Despite its smaller population, Tasmania leads Australia with approximately 101 stadium seats per 1,000 residents, outperforming larger states on this measure.</p><p class="chart-insight">Tasmania has the highest listed capacity per resident, at about 101 seats per 1,000 people. Its smaller population raises this per-capita measure; this however does not mean Tasmania has the largest total stadium capacity.</p></aside></article>
       </section>
 
       <section class="topic-section">
@@ -67,8 +66,8 @@
           <h2>How many people turn up?</h2>
           <p>Explore attendance across venues and compare how full stadiums get for different sports.</p>
         </div>
-        <article class="chart-row"><div class="chart-panel"><h3 class="chart-kicker">Linear demand across Australian arenas</h3><div class="chart" id="vis8"></div></div><aside class="chart-notes"><p class="chart-insight">Across the 79 matched stadium-and-sport records, higher-capacity venues generally also record higher average attendance. Bubble size shows event count, and attendance still varies by sport and venue.</p></aside></article>
-        <article class="chart-row"><div class="chart-panel"><h3 class="chart-kicker">Western Australia’s crowd efficiency</h3><div class="chart" id="vis9"></div></div><aside class="chart-notes"><p class="chart-insight">Western Australia records strong utilization at Optus Stadium for football (83.8%) and rugby union (89.2%), but a lower figure for rugby league (54.5%). Each state is represented by its highest-capacity stadium, so this is not a state-wide venue average.</p></aside></article>
+        <article class="chart-row"><div class="chart-panel"><h3 class="chart-kicker">Linear demand across Australian arenas</h3><div class="chart" id="vis8"></div></div><aside class="chart-notes"><p class="chart-summary">Bigger stadiums generally attract bigger crowds, revealing a strong positive relationship between capacity and attendance. However, crowd sizes still vary considerably across sports.</p><p class="chart-insight">Across the 79 matched stadium-and-sport records, higher-capacity venues generally also record higher average attendance. Bubble size shows event count, and attendance still varies by sport and venue.</p></aside></article>
+        <article class="chart-row"><div class="chart-panel"><h3 class="chart-kicker">Western Australia’s crowd efficiency</h3><div class="chart" id="vis9"></div></div><aside class="chart-notes"><p class="chart-summary">Western Australia stands out for stadium utilisation. At Optus Stadium, football and rugby union attract crowds exceeding 80% of capacity, while rugby league records a smaller share.</p><p class="chart-insight">Each state is represented by its highest-capacity stadium, so this is not a state-wide venue average.</p></aside></article>
       </section>
 
       <section class="topic-section">
@@ -77,13 +76,14 @@
           <h2>Stadiums through the years</h2>
           <p>Follow the changing venues of Australian football over time.</p>
         </div>
-        <article class="chart-row"><div class="chart-panel"><h3 class="chart-kicker">From suburban ovals to national super-hubs</h3><div class="chart" id="vis10"></div></div><aside class="chart-notes"><p class="chart-insight">The AFL venue timeline shows a long history of grounds in Victoria, alongside later use of major venues in other states. It traces recorded AFL venue use over time, rather than the construction dates of stadiums.</p></aside></article>
+        <article class="chart-row"><div class="chart-panel"><h3 class="chart-kicker">From suburban ovals to national super-hubs</h3><div class="chart" id="vis10"></div></div><aside class="chart-notes"><p class="chart-summary">AFL's story began in Victoria's historic suburban grounds before expanding across Australia. Over time, new interstate venues emerged while several traditional grounds disappeared from recorded AFL use.</p><p class="chart-insight">The AFL venue timeline shows a long history of grounds in Victoria, alongside later use of major venues in other states. It traces recorded AFL venue use over time, rather than the construction dates of stadiums.</p></aside></article>
       </section>
 
       <section class="conclusion">
         <p class="eyebrow">Closing takeaway</p>
         <h2>Stadiums reflect how Australia plays</h2>
-        <p>Australia’s sporting culture is written into its venues: the mix of oval and rectangular grounds reflects different codes, state counts show where infrastructure is concentrated, and attendance reveals how crowds use those spaces. Read together, the charts show stadiums as sporting facilities and as markers of regional identity and change.</p>
+        <p>From historic suburban ovals to modern sporting arenas, Australia's stadiums tell a story of a nation united by sport, yet shaped by distinct regional identities.</p>
+        <p>Oval and rectangular grounds reflect the diversity of Australia's sporting passions, while differences in capacity, location and attendance reveal how communities experience sport across the country. As venues evolve and sporting crowds grow, one thing remains clear: <strong>stadiums are more than places to watch a game. They are where Australian sporting culture, community and history come together.</strong></p>
       </section>
     </main>
 
@@ -92,7 +92,7 @@
         <h2>Data Sources</h2>
         <ul class="source-list">
           <li><a href="https://en.wikipedia.org/wiki/List_of_sports_venues_in_Australia" target="_blank" rel="noopener noreferrer">Australian stadium locations and venue types</a></li>
-          <li><a href="https://www.abs.gov.au/statistics/people/population/national-state-and-territory-population/latest-release" target="_blank" rel="noopener noreferrer">Australian Bureau of Statistics: National, state and territory population</a></li>
+          <li><a href="https://www.abs.gov.au/statistics/people/population/national-state-and-territory-population/latest-release" target="_blank" rel="noopener noreferrer">Australian Bureau of Statistics: National, state and territory population table</a></li>
           <li><a href="https://www.austadiums.com/sport" target="_blank" rel="noopener noreferrer">Austadiums: Sports attendance tables</a></li>
           <li><a href="https://www.freyssinet.com.au/case-study/stadium-aus/" target="_blank" rel="noopener noreferrer">Header image: Freyssinet Australia, Stadium Australia case study</a></li>
         </ul>
