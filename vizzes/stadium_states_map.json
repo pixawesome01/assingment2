@@ -1,85 +1,203 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 500,
-    "height": 400,
-    "background": "#a9e1f0",
-    "title": "Stadiums by State and Territory",
-    "projection": {"type": "mercator"},
-    "layer": [
-        {
-            "data": {
-                "url": "vizzes/aus_states_map.topojson",
-                "format": {
-                    "type": "topojson",
-                    "feature": "abs-states-territories-2021_2021-06-25"
-                }
-            },
-            "mark": {
-                "type": "geoshape",
-                "fill": "#4bc580",
-                "stroke": "grey",
-                "strokeWidth": 1
-            }
-        },
-        {
-            "data": {"url": "data/all_stadiums.csv", "format": {"type": "csv"}},
-            "transform": [
-                {
-                    "aggregate": [
-                        {"op": "count", "as": "StadiumCount"},
-                        {"op": "mean", "field": "Longitude", "as": "Longitude"},
-                        {"op": "mean", "field": "Latitude", "as": "Latitude"}
-                    ],
-                    "groupby": ["State"]
-                }
-            ],
-            "mark": {
-                "type": "circle",
-                "color": "#d95f02",
-                "opacity": 0.72,
-                "stroke": "white",
-                "strokeWidth": 1.5
-            },
-            "encoding": {
-                "longitude": {"field": "Longitude", "type": "quantitative"},
-                "latitude": {"field": "Latitude", "type": "quantitative"},
-                "size": {
-                    "field": "StadiumCount",
-                    "type": "quantitative",
-                    "scale": {"range": [100, 1400]},
-                    "legend": {"title": "Number of stadiums", "symbolType": "circle"}
-                },
-                "tooltip": [
-                    {"field": "State", "type": "nominal"},
-                    {"field": "StadiumCount", "type": "quantitative", "title": "Stadiums"}
-                ]
-            }
-        },
-        {
-            "data": {"url": "data/all_stadiums.csv", "format": {"type": "csv"}},
-            "transform": [
-                {
-                    "aggregate": [
-                        {"op": "count", "as": "StadiumCount"},
-                        {"op": "mean", "field": "Longitude", "as": "Longitude"},
-                        {"op": "mean", "field": "Latitude", "as": "Latitude"}
-                    ],
-                    "groupby": ["State"]
-                },
-                {"calculate": "datum.State", "as": "StateLabel"}
-            ],
-            "mark": {
-                "type": "text",
-                "dy": -15,
-                "fontSize": 10,
-                "fontWeight": "bold",
-                "color": "#222"
-            },
-            "encoding": {
-                "longitude": {"field": "Longitude", "type": "quantitative"},
-                "latitude": {"field": "Latitude", "type": "quantitative"},
-                "text": {"field": "StateLabel", "type": "nominal"}
-            }
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 400,
+  "background": "#a9e1f0",
+  "projection": {
+    "type": "mercator"
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "vizzes/aus_states_map.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "abs-states-territories-2021_2021-06-25"
         }
-    ]
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#4bc580",
+        "stroke": "#808080",
+        "strokeWidth": 1
+      }
+    },
+    {
+      "data": {
+        "url": "data/all_stadiums.csv",
+        "format": {
+          "type": "csv"
+        }
+      },
+      "transform": [
+        {
+          "aggregate": [
+            {
+              "op": "count",
+              "as": "StadiumCount"
+            },
+            {
+              "op": "mean",
+              "field": "Longitude",
+              "as": "Longitude"
+            },
+            {
+              "op": "mean",
+              "field": "Latitude",
+              "as": "Latitude"
+            }
+          ],
+          "groupby": [
+            "State"
+          ]
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "color": "#d95f02",
+        "opacity": 0.72,
+        "stroke": "white",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "longitude": {
+          "field": "Longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "Latitude",
+          "type": "quantitative"
+        },
+        "size": {
+          "field": "StadiumCount",
+          "type": "quantitative",
+          "scale": {
+            "range": [
+              100,
+              1400
+            ]
+          },
+          "legend": {
+            "title": "Number of stadiums",
+            "symbolType": "circle",
+            "orient": "top-left"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "State",
+            "type": "nominal"
+          },
+          {
+            "field": "StadiumCount",
+            "type": "quantitative",
+            "title": "Stadiums"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "data/all_stadiums.csv",
+        "format": {
+          "type": "csv"
+        }
+      },
+      "transform": [
+        {
+          "aggregate": [
+            {
+              "op": "count",
+              "as": "StadiumCount"
+            },
+            {
+              "op": "mean",
+              "field": "Longitude",
+              "as": "Longitude"
+            },
+            {
+              "op": "mean",
+              "field": "Latitude",
+              "as": "Latitude"
+            }
+          ],
+          "groupby": [
+            "State"
+          ]
+        },
+        {
+          "calculate": "datum.State",
+          "as": "StateLabel"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "dy": -15,
+        "fontSize": 10,
+        "fontWeight": "bold",
+        "color": "#222"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "Longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "Latitude",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "StateLabel",
+          "type": "nominal"
+        }
+      }
+    }
+  ],
+  "autosize": {
+    "type": "fit",
+    "contains": "padding",
+    "resize": true
+  },
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "font": "DM Sans",
+    "title": {
+      "font": "Manrope",
+      "fontSize": 17,
+      "fontWeight": 700,
+      "color": "#172b35",
+      "subtitleFont": "DM Sans",
+      "subtitleFontSize": 12,
+      "subtitleColor": "#5c6c73"
+    },
+    "axis": {
+      "labelFont": "DM Sans",
+      "labelFontSize": 11,
+      "labelColor": "#5c6c73",
+      "titleFont": "DM Sans",
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "titleColor": "#172b35"
+    },
+    "legend": {
+      "labelFont": "DM Sans",
+      "labelFontSize": 11,
+      "labelColor": "#172b35",
+      "titleFont": "DM Sans",
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "titleColor": "#172b35"
+    },
+    "header": {
+      "labelFont": "DM Sans",
+      "labelFontSize": 11,
+      "labelColor": "#5c6c73",
+      "titleFont": "DM Sans",
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "titleColor": "#172b35"
+    }
+  }
 }

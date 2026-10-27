@@ -1,108 +1,214 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 500,
-    "height": 400,
-    "background": "#a9e1f0",
-    "title": {
-        "text": "Sports Stadiums Types Across Australia",
-        "subtitle": "Markers are slightly offset to reduce overlap"
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 400,
+  "background": "#a9e1f0",
+  "params": [
+    {
+      "name": "Zoom",
+      "value": 500,
+      "bind": {
+        "input": "range",
+        "min": 500,
+        "max": 3000,
+        "step": 1
+      }
     },
-    "params": [
-        {
-            "name": "mapZoom",
-            "value": 500,
-            "bind": {"input": "range", "min": 500, "max": 3000, "step": 1}
-        },
-        {
-            "name": "mapTranslate",
-            "value": [250, 200]
-        }
+    {
+      "name": "mapTranslate",
+      "value": [
+        250,
+        200
+      ]
+    }
+  ],
+  "projection": {
+    "type": "mercator",
+    "center": [
+      134,
+      -27
     ],
-    "projection": {
-        "type": "mercator",
-        "center": [134, -27],
-        "scale": {"expr": "mapZoom"},
-        "translate": {"expr": "mapTranslate"}
+    "scale": {
+      "expr": "Zoom"
     },
-    "layer": [
+    "translate": {
+      "expr": "mapTranslate"
+    }
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "vizzes/aus_states_map.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "abs-states-territories-2021_2021-06-25"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#4bc580",
+        "stroke": "#808080",
+        "strokeWidth": 1
+      }
+    },
+    {
+      "data": {
+        "url": "data/all_stadiums.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "Latitude": "number",
+            "Longitude": "number",
+            "Capacity": "number"
+          }
+        }
+      },
+      "transform": [
         {
-            "data": {
-                "url": "vizzes/aus_states_map.topojson",
-                "format": {
-                    "type": "topojson",
-                    "feature": "abs-states-territories-2021_2021-06-25"
-                }
-            },
-            "mark": {
-                "type": "geoshape",
-                "fill": "#4bc580",
-                "stroke": "gray",
-                "strokeWidth": 1
+          "window": [
+            {
+              "op": "row_number",
+              "as": "stadiumOrder"
             }
+          ],
+          "sort": [
+            {
+              "field": "Stadium",
+              "order": "ascending"
+            }
+          ]
         },
         {
-            "data": {
-                "url": "data/all_stadiums.csv",
-                "format": {
-                    "type": "csv",
-                    "parse": {
-                        "Latitude": "number",
-                        "Longitude": "number",
-                        "Capacity": "number"
-                    }
-                }
-            },
-            "transform": [
-                {
-                    "window": [{"op": "row_number", "as": "stadiumOrder"}],
-                    "sort": [{"field": "Stadium", "order": "ascending"}]
-                },
-                {
-                    "calculate": "datum.Longitude + 0.25 * cos(datum.stadiumOrder * 2.3999632297)",
-                    "as": "JitteredLongitude"
-                },
-                {
-                    "calculate": "datum.Latitude + 0.25 * sin(datum.stadiumOrder * 2.3999632297)",
-                    "as": "JitteredLatitude"
-                }
-            ],
-            "mark": {
-                "type": "point",
-                "color": "#000000",
-                "size": 90,
-                "opacity": 0.9,
-                "stroke": "white",
-                "strokeWidth": 1,
-                "filled": true
-            },
-            "encoding": {
-                "longitude": {"field": "JitteredLongitude", "type": "quantitative"},
-                "latitude": {"field": "JitteredLatitude", "type": "quantitative"},
-                "shape": {
-                    "field": "Shape",
-                    "type": "nominal",
-                    "title": "Stadium type",
-                    "scale": {
-                        "domain": [
-                            "Oval",
-                            "Convertible",
-                            "Rectangular",
-                            "Rectangular, with Athletics track",
-                            "Diamond"
-                        ],
-                        "range": ["circle","triangle-up", "square", "cross", "diamond"]
-                    }
-                },
-                "tooltip": [
-                    {"field": "Stadium", "type": "nominal"},
-                    {"field": "City", "type": "nominal"},
-                    {"field": "State", "type": "nominal"},
-                    {"field": "Capacity", "type": "quantitative", "format": ","},
-                    {"field": "Shape", "type": "nominal"},
-                    {"field": "Latitude", "type": "quantitative", "format": ".4f", "title": "Original latitude"},
-                    {"field": "Longitude", "type": "quantitative", "format": ".4f", "title": "Original longitude"}
-                ]
-            }
+          "calculate": "datum.Longitude + 0.25 * cos(datum.stadiumOrder * 2.3999632297)",
+          "as": "JitteredLongitude"
+        },
+        {
+          "calculate": "datum.Latitude + 0.25 * sin(datum.stadiumOrder * 2.3999632297)",
+          "as": "JitteredLatitude"
         }
-    ]
+      ],
+      "mark": {
+        "type": "point",
+        "color": "#000000",
+        "size": 90,
+        "opacity": 0.9,
+        "stroke": "white",
+        "strokeWidth": 1,
+        "filled": true
+      },
+      "encoding": {
+        "longitude": {
+          "field": "JitteredLongitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "JitteredLatitude",
+          "type": "quantitative"
+        },
+        "shape": {
+          "field": "Shape",
+          "type": "nominal",
+          "title": "Stadium type",
+          "scale": {
+            "domain": [
+              "Oval",
+              "Convertible",
+              "Rectangular",
+              "Rectangular, with Athletics track",
+              "Diamond"
+            ],
+            "range": [
+              "circle",
+              "triangle-up",
+              "square",
+              "cross",
+              "diamond"
+            ]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "Stadium",
+            "type": "nominal"
+          },
+          {
+            "field": "City",
+            "type": "nominal"
+          },
+          {
+            "field": "State",
+            "type": "nominal"
+          },
+          {
+            "field": "Capacity",
+            "type": "quantitative",
+            "format": ","
+          },
+          {
+            "field": "Shape",
+            "type": "nominal"
+          },
+          {
+            "field": "Latitude",
+            "type": "quantitative",
+            "format": ".4f",
+            "title": "Original latitude"
+          },
+          {
+            "field": "Longitude",
+            "type": "quantitative",
+            "format": ".4f",
+            "title": "Original longitude"
+          }
+        ]
+      }
+    }
+  ],
+  "autosize": {
+    "type": "fit",
+    "contains": "padding",
+    "resize": true
+  },
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "font": "DM Sans",
+    "title": {
+      "font": "Manrope",
+      "fontSize": 17,
+      "fontWeight": 700,
+      "color": "#172b35",
+      "subtitleFont": "DM Sans",
+      "subtitleFontSize": 12,
+      "subtitleColor": "#5c6c73"
+    },
+    "axis": {
+      "labelFont": "DM Sans",
+      "labelFontSize": 11,
+      "labelColor": "#5c6c73",
+      "titleFont": "DM Sans",
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "titleColor": "#172b35"
+    },
+    "legend": {
+      "labelFont": "DM Sans",
+      "labelFontSize": 11,
+      "labelColor": "#172b35",
+      "titleFont": "DM Sans",
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "titleColor": "#172b35"
+    },
+    "header": {
+      "labelFont": "DM Sans",
+      "labelFontSize": 11,
+      "labelColor": "#5c6c73",
+      "titleFont": "DM Sans",
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "titleColor": "#172b35"
+    }
+  }
 }

@@ -1,47 +1,133 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 650,
-    "height": 700,
-    "title": "Venues in Use Over Time",
-    "data": {
-        "url": "data/afl_stadiums.csv",
-        "format": {
-            "type": "csv",
-            "parse": {
-                "From": "number",
-                "Till": "number",
-                "Games": "number"
-            }
-        }
-    },
-    "mark": {"type": "bar", "size": 9},
-    "encoding": {
-        "y": {
-            "field": "Venue",
-            "type": "nominal",
-            "sort": {"field": "From", "order": "ascending"},
-            "axis": {"title": "Venue", "labelLimit": 190}
-        },
-        "x": {
-            "field": "From",
-            "type": "quantitative",
-            "scale": {"domain": [1890, 2030]},
-            "axis": {"title": "Years in use", "tickMinStep": 10}
-        },
-        "x2": {"field": "Till"},
-        "color": {
-            "field": "State",
-            "type": "nominal",
-            "title": "State or territory",
-            "scale": {"scheme": "tableau10"}
-        },
-        "tooltip": [
-            {"field": "Venue", "type": "nominal"},
-            {"field": "City", "type": "nominal"},
-            {"field": "State", "type": "nominal"},
-            {"field": "From", "type": "quantitative", "title": "First year"},
-            {"field": "Till", "type": "quantitative", "title": "Last year"},
-            {"field": "Games", "type": "quantitative", "format": ","}
-        ]
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 700,
+  "title": "Venues in Use Over Time",
+  "data": {
+    "url": "data/afl_stadiums.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "From": "number",
+        "Till": "number",
+        "Games": "number"
+      }
     }
+  },
+  "mark": {
+    "type": "bar",
+    "size": 9
+  },
+  "encoding": {
+    "y": {
+      "field": "Venue",
+      "type": "nominal",
+      "sort": {
+        "field": "From",
+        "order": "ascending"
+      },
+      "axis": {
+        "title": "Venue",
+        "labelLimit": 190
+      }
+    },
+    "x": {
+      "field": "From",
+      "type": "quantitative",
+      "scale": {
+        "domain": [
+          1890,
+          2030
+        ]
+      },
+      "axis": {
+        "title": "Years in use",
+        "tickMinStep": 10
+      }
+    },
+    "x2": {
+      "field": "Till"
+    },
+    "color": {
+      "field": "State",
+      "type": "nominal",
+      "title": "State or territory",
+      "scale": {
+        "scheme": "tableau10"
+      }
+    },
+    "tooltip": [
+      {
+        "field": "Venue",
+        "type": "nominal"
+      },
+      {
+        "field": "City",
+        "type": "nominal"
+      },
+      {
+        "field": "State",
+        "type": "nominal"
+      },
+      {
+        "field": "From",
+        "type": "quantitative",
+        "title": "First year"
+      },
+      {
+        "field": "Till",
+        "type": "quantitative",
+        "title": "Last year"
+      },
+      {
+        "field": "Games",
+        "type": "quantitative",
+        "format": ","
+      }
+    ]
+  },
+  "autosize": {
+    "type": "fit",
+    "contains": "padding",
+    "resize": true
+  },
+  "config": {
+    "font": "DM Sans",
+    "title": {
+      "font": "Manrope",
+      "fontSize": 17,
+      "fontWeight": 700,
+      "color": "#172b35",
+      "subtitleFont": "DM Sans",
+      "subtitleFontSize": 12,
+      "subtitleColor": "#5c6c73"
+    },
+    "axis": {
+      "labelFont": "DM Sans",
+      "labelFontSize": 11,
+      "labelColor": "#5c6c73",
+      "titleFont": "DM Sans",
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "titleColor": "#172b35"
+    },
+    "legend": {
+      "labelFont": "DM Sans",
+      "labelFontSize": 11,
+      "labelColor": "#172b35",
+      "titleFont": "DM Sans",
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "titleColor": "#172b35"
+    },
+    "header": {
+      "labelFont": "DM Sans",
+      "labelFontSize": 11,
+      "labelColor": "#5c6c73",
+      "titleFont": "DM Sans",
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "titleColor": "#172b35"
+    }
+  }
 }

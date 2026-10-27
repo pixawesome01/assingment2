@@ -4,7 +4,7 @@
     <title>FIT3173 Assignment 2</title>
     <meta charset="utf-8" />
 
-    <link rel="stylesheet" href="style.css?v=2">
+    <link rel="stylesheet" href="style.css?v=6">
 
     <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
     <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
@@ -18,18 +18,67 @@
     </style>
   </head>
   <body>
-    <h1 class = "h1">How does Australia host its games?</h1>
-    
-    <div id="vis1"></div>
-    <div id="vis2"></div>
-    <div id="vis3"></div>
-    <div id="vis4"></div>
-    <div id="vis5"></div>
-    <div id="vis6"></div>
-    <div id="vis7"></div>
-    <div id="vis8"></div>
-    <div id="vis9"></div>
-    <div id="vis10"></div>
+    <header class="page-header">
+      <img class="page-image" src="images.jpeg" alt="Interior view of an Australian sporting stadium">
+      <div class="hero-copy">
+        <p class="eyebrow">Australian sport, venues and crowds</p>
+        <h1 class="page-title">How does Australia host its games?</h1>
+        <p class="hero-intro">Explore the stadiums, events and audiences that shape Australia's sporting landscape.</p>
+      </div>
+    </header>
+
+    <main class="page-content">
+      <div class="intro-row">
+        <p class="page-intro">Sport is woven into Australia’s national fabric—with millions filling grandstands every weekend across Australian Rules Football, cricket, rugby league, and soccer. However, this passion is not housed uniformly. Across the country, venue architecture tells a profound story of regional preferences, historical evolution, and multi-code compromises. By comparing stadium types, seating capacities, and crowd distributions across states and territories, we uncover how infrastructure both mirrors and shapes the modern Australian sporting landscape.</p>
+        <aside class="author-card">
+          <label id="author-name" class=""> Nethra Yamala </label>
+          <span class="date-label">Date</span>
+          <time datetime="2026-10-27">27 October 2026</time>
+        </aside>
+      </div>
+
+      <section class="topic-section">
+        <div class="section-heading">
+          <p class="eyebrow">01 · The venues</p>
+          <h2>What are Australia's stadiums like?</h2>
+          <p>Compare stadium types, capacity and the sports hosted across different venues.</p>
+        </div>
+        <article class="chart-row"><div class="chart-panel"><h3 class="chart-title">Share of Stadiums by Type</h3><div class="chart" id="vis1"></div></div><aside class="chart-notes"><h3>Key insight</h3><p class="notes-prompt">Add a short explanation of the main pattern you notice.</p></aside></article>
+        <article class="chart-row"><div class="chart-panel"><h3 class="chart-title">Average Attendance by Stadium Type and Sport</h3><p class="chart-subtitle">Event-weighted average; blank cells have no matched attendance records.</p><div class="chart" id="vis2"></div></div><aside class="chart-notes"><h3>Key insight</h3><p class="notes-prompt">What combinations stand out? Note any useful comparison.</p></aside></article>
+        <article class="chart-row"><div class="chart-panel"><h3 class="chart-title">Average Stadium Capacity by Type</h3><div class="chart" id="vis3"></div></div><aside class="chart-notes"><h3>Key insight</h3><p class="notes-prompt">Summarise what this chart reveals about stadium capacity.</p></aside></article>
+        <article class="chart-row"><div class="chart-panel"><h3 class="chart-title">Sports Stadium Types Across Australia</h3><p class="chart-subtitle">Markers are slightly offset to reduce overlap.</p><div class="chart map-chart-rounded" id="vis4"></div></div><aside class="chart-notes"><h3>Key insight</h3><p class="notes-prompt">Record a pattern in where stadiums are located.</p></aside></article>
+      </section>
+
+      <section class="topic-section">
+        <div class="section-heading">
+          <p class="eyebrow">02 · Across the country</p>
+          <h2>How does sport vary by state?</h2>
+          <p>See how stadium types, capacity and facilities are distributed around Australia.</p>
+        </div>
+        <article class="chart-row"><div class="chart-panel"><h3 class="chart-title">Stadium Type Mix by State</h3><div class="chart" id="vis5"></div></div><aside class="chart-notes"><h3>Key insight</h3><p class="notes-prompt">Which states or territories have a distinctive mix?</p></aside></article>
+        <article class="chart-row"><div class="chart-panel"><h3 class="chart-title">Stadiums by State and Territory</h3><div class="chart map-chart-blue" id="vis6"></div></div><aside class="chart-notes"><h3>Key insight</h3><p class="notes-prompt">Compare the state-level pattern and note any standout.</p></aside></article>
+        <article class="chart-row"><div class="chart-panel"><h3 class="chart-title">Stadium Capacity per 1,000 Residents by State</h3><div class="chart map-chart-rounded" id="vis7"></div></div><aside class="chart-notes"><h3>Key insight</h3><p class="notes-prompt">What does this view suggest about capacity per resident?</p></aside></article>
+      </section>
+
+      <section class="topic-section">
+        <div class="section-heading">
+          <p class="eyebrow">03 · The crowds</p>
+          <h2>How many people turn up?</h2>
+          <p>Explore attendance across venues and compare how full stadiums get for different sports.</p>
+        </div>
+        <article class="chart-row"><div class="chart" id="vis8"></div><aside class="chart-notes"><h3>Key insight</h3><p class="notes-prompt">Which venues attract the largest crowds?</p></aside></article>
+        <article class="chart-row"><div class="chart" id="vis9"></div><aside class="chart-notes"><h3>Key insight</h3><p class="notes-prompt">Note how attendance compares with venue capacity.</p></aside></article>
+      </section>
+
+      <section class="topic-section">
+        <div class="section-heading">
+          <p class="eyebrow">04 · Over time</p>
+          <h2>Stadiums through the years</h2>
+          <p>Follow the changing venues of Australian football over time.</p>
+        </div>
+        <article class="chart-row"><div class="chart" id="vis10"></div><aside class="chart-notes"><h3>Key insight</h3><p class="notes-prompt">What changes over time? Note a milestone or trend.</p></aside></article>
+      </section>
+    </main>
 
     <script src="script.js"></script>
   </body>

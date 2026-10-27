@@ -1,66 +1,155 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 650,
-    "height": 320,
-    "title": {
-        "text": "Average Attendance as a Share of Capacity",
-        "subtitle": "Each state's highest-capacity stadium; one dot per sport with attendance data"
-    },
-    "data": {
-        "url": "data/top_stadium_attendance_percent.csv",
-        "format": {
-            "type": "csv",
-            "parse": {
-                "Capacity": "number",
-                "AverageAttendance": "number",
-                "Events": "number",
-                "AverageAttendancePercent": "number"
-            }
-        }
-    },
-    "mark": {"type": "point", "filled": true, "size": 65},
-    "encoding": {
-        "x": {
-            "field": "AverageAttendancePercent",
-            "type": "quantitative",
-            "scale": {"domain": [0, 100]},
-            "axis": {"title": "Average attendance as capacity (%)", "format": ".0f"}
-        },
-        "y": {
-            "field": "State",
-            "type": "nominal",
-            "sort": "ascending",
-            "axis": {
-                "title": "State or territory",
-                "labelLimit": 230,
-                "grid": true,
-                "gridColor": "#d9d9d9",
-                "gridOpacity": 0.65
-            }
-        },
-        "color": {
-            "field": "Sport",
-            "type": "nominal",
-            "title": "Sport",
-            "scale": {
-                 "domain": [
-                    "AFL",
-                    "Cricket",
-                    "Football",
-                    "Rugby League",
-                    "Rugby Union"
-                ],
-                "range": ["#4e79a7", "#f28e2b", "#59a14f", "#e15759", "#b07aa1"]
-            }
-        },
-        "tooltip": [
-            {"field": "State", "type": "nominal"},
-            {"field": "Stadium", "type": "nominal"},
-            {"field": "Capacity", "type": "quantitative", "format": ","},
-            {"field": "Sport", "type": "nominal"},
-            {"field": "AverageAttendance", "type": "quantitative", "title": "Average attendance", "format": ","},
-            {"field": "AverageAttendancePercent", "type": "quantitative", "title": "Average attendance as capacity", "format": ".1f"},
-            {"field": "Events", "type": "quantitative", "title": "Events"}
-        ]
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 320,
+  "title": {
+    "text": "Average Attendance as a Share of Capacity",
+    "subtitle": "Each state's highest-capacity stadium; one dot per sport with attendance data"
+  },
+  "data": {
+    "url": "data/top_stadium_attendance_percent.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "Capacity": "number",
+        "AverageAttendance": "number",
+        "Events": "number",
+        "AverageAttendancePercent": "number"
+      }
     }
+  },
+  "mark": {
+    "type": "point",
+    "filled": true,
+    "size": 65
+  },
+  "encoding": {
+    "x": {
+      "field": "AverageAttendancePercent",
+      "type": "quantitative",
+      "scale": {
+        "domain": [
+          0,
+          100
+        ]
+      },
+      "axis": {
+        "title": "Average attendance as capacity (%)",
+        "format": ".0f"
+      }
+    },
+    "y": {
+      "field": "State",
+      "type": "nominal",
+      "sort": "ascending",
+      "axis": {
+        "title": "State or territory",
+        "labelLimit": 230,
+        "grid": true,
+        "gridColor": "#d9d9d9",
+        "gridOpacity": 0.65
+      }
+    },
+    "color": {
+      "field": "Sport",
+      "type": "nominal",
+      "title": "Sport",
+      "scale": {
+        "domain": [
+          "AFL",
+          "Cricket",
+          "Football",
+          "Rugby League",
+          "Rugby Union"
+        ],
+        "range": [
+          "#4e79a7",
+          "#f28e2b",
+          "#59a14f",
+          "#e15759",
+          "#b07aa1"
+        ]
+      }
+    },
+    "tooltip": [
+      {
+        "field": "State",
+        "type": "nominal"
+      },
+      {
+        "field": "Stadium",
+        "type": "nominal"
+      },
+      {
+        "field": "Capacity",
+        "type": "quantitative",
+        "format": ","
+      },
+      {
+        "field": "Sport",
+        "type": "nominal"
+      },
+      {
+        "field": "AverageAttendance",
+        "type": "quantitative",
+        "title": "Average attendance",
+        "format": ","
+      },
+      {
+        "field": "AverageAttendancePercent",
+        "type": "quantitative",
+        "title": "Average attendance as capacity",
+        "format": ".1f"
+      },
+      {
+        "field": "Events",
+        "type": "quantitative",
+        "title": "Events"
+      }
+    ]
+  },
+  "autosize": {
+    "type": "fit",
+    "contains": "padding",
+    "resize": true
+  },
+  "config": {
+    "font": "DM Sans",
+    "title": {
+      "font": "Manrope",
+      "fontSize": 17,
+      "fontWeight": 700,
+      "color": "#172b35",
+      "subtitleFont": "DM Sans",
+      "subtitleFontSize": 12,
+      "subtitleColor": "#5c6c73"
+    },
+    "axis": {
+      "labelFont": "DM Sans",
+      "labelFontSize": 11,
+      "labelColor": "#5c6c73",
+      "titleFont": "DM Sans",
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "titleColor": "#172b35"
+    },
+    "legend": {
+      "labelFont": "DM Sans",
+      "labelFontSize": 11,
+      "labelColor": "#172b35",
+      "titleFont": "DM Sans",
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "titleColor": "#172b35"
+    },
+    "header": {
+      "labelFont": "DM Sans",
+      "labelFontSize": 11,
+      "labelColor": "#5c6c73",
+      "titleFont": "DM Sans",
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "titleColor": "#172b35"
+    }
+  }
 }

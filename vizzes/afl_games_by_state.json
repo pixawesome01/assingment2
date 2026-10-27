@@ -1,22 +1,76 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 500,
-    "height": 400,
-    "data": {
-        "url": "data/afl_stadiums.csv",
-        "format": {"type": "csv"}
-    },
-    "title": "Total Number of AFL Games by State ",
-    "mark": "bar",
-    "encoding": {
-        "y": {"field": "State", "type": "nominal", "sort": "-x",
-            "axis": {"title": "State"}
-        },
-        "x": {"aggregate": "sum", "field": "Games", "type": "quantitative",
-            "axis": {
-                "title": "Total games",
-                "format": ",.0f"
-            }
-        }
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 400,
+  "data": {
+    "url": "data/afl_stadiums.csv",
+    "format": {
+      "type": "csv"
     }
+  },
+  "title": "Total Number of AFL Games by State ",
+  "mark": "bar",
+  "encoding": {
+    "y": {
+      "field": "State",
+      "type": "nominal",
+      "sort": "-x",
+      "axis": {
+        "title": "State"
+      }
+    },
+    "x": {
+      "aggregate": "sum",
+      "field": "Games",
+      "type": "quantitative",
+      "axis": {
+        "title": "Total games",
+        "format": ",.0f"
+      }
+    }
+  },
+  "autosize": {
+    "type": "fit",
+    "contains": "padding",
+    "resize": true
+  },
+  "config": {
+    "font": "DM Sans",
+    "title": {
+      "font": "Manrope",
+      "fontSize": 17,
+      "fontWeight": 700,
+      "color": "#172b35",
+      "subtitleFont": "DM Sans",
+      "subtitleFontSize": 12,
+      "subtitleColor": "#5c6c73"
+    },
+    "axis": {
+      "labelFont": "DM Sans",
+      "labelFontSize": 11,
+      "labelColor": "#5c6c73",
+      "titleFont": "DM Sans",
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "titleColor": "#172b35"
+    },
+    "legend": {
+      "labelFont": "DM Sans",
+      "labelFontSize": 11,
+      "labelColor": "#172b35",
+      "titleFont": "DM Sans",
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "titleColor": "#172b35"
+    },
+    "header": {
+      "labelFont": "DM Sans",
+      "labelFontSize": 11,
+      "labelColor": "#5c6c73",
+      "titleFont": "DM Sans",
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "titleColor": "#172b35"
+    }
+  }
 }

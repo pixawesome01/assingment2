@@ -1,69 +1,163 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 500,
-    "height": 400,
-    "background": "#a9e1f0",
-    "title": "Stadium Capacity per 1,000 Residents by State",
-    "projection": {"type": "mercator"},
-    "layer": [
-        {
-            "data": {
-                "url": "vizzes/aus_states_map.topojson",
-                "format": {
-                    "type": "topojson",
-                    "feature": "abs-states-territories-2021_2021-06-25"
-                }
-            },
-            "transform": [
-                {"calculate": "datum.properties.state_2021_name", "as": "State"},
-                {
-                    "lookup": "State",
-                    "from": {
-                        "data": {
-                            "url": "data/state_capacity_per_capita.csv",
-                            "format": {
-                                "type": "csv",
-                                "parse": {
-                                    "Residents": "number",
-                                    "TotalCapacity": "number",
-                                    "SeatsPer1000Residents": "number"
-                                }
-                            }
-                        },
-                        "key": "State",
-                        "fields": ["Residents", "TotalCapacity", "SeatsPer1000Residents"]
-                    }
-                },
-                {
-                    "calculate": "datum.SeatsPer1000Residents < 50 ? '40-50' : datum.SeatsPer1000Residents < 60 ? '50-60' : datum.SeatsPer1000Residents < 90 ? '60-90' : '90+'",
-                    "as": "CapacityRange"
-                }
-            ],
-            "mark": {
-                "type": "geoshape",
-                "stroke": "grey",
-                "strokeWidth": 1
-            },
-            "encoding": {
-                "color": {
-                    "field": "CapacityRange",
-                    "type": "ordinal",
-                    "title": "Seats per 1,000 residents",
-                    "sort": ["40-50", "50-60", "60-90", "90+"],
-                    "scale": {
-                        "domain": ["40-50", "50-60", "60-90", "90+"],
-                        "range": ["#feedde", "#fdbe85", "#fd8d3c", "#d94701"]
-                    },
-                    "legend": {"symbolType": "square"}
-                },
-                "tooltip": [
-                    {"field": "State", "type": "nominal"},
-                    {"field": "TotalCapacity", "type": "quantitative", "title": "Total listed stadium capacity", "format": ","},
-                    {"field": "Residents", "type": "quantitative", "format": ","},
-                    {"field": "CapacityRange", "type": "nominal", "title": "Capacity range"},
-                    {"field": "SeatsPer1000Residents", "type": "quantitative", "title": "Seats per 1,000 residents", "format": ".1f"}
-                ]
-            }
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 400,
+  "background": "#a9e1f0",
+  "projection": {
+    "type": "mercator"
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "vizzes/aus_states_map.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "abs-states-territories-2021_2021-06-25"
         }
-    ]
+      },
+      "transform": [
+        {
+          "calculate": "datum.properties.state_2021_name",
+          "as": "State"
+        },
+        {
+          "lookup": "State",
+          "from": {
+            "data": {
+              "url": "data/state_capacity_per_capita.csv",
+              "format": {
+                "type": "csv",
+                "parse": {
+                  "Residents": "number",
+                  "TotalCapacity": "number",
+                  "SeatsPer1000Residents": "number"
+                }
+              }
+            },
+            "key": "State",
+            "fields": [
+              "Residents",
+              "TotalCapacity",
+              "SeatsPer1000Residents"
+            ]
+          }
+        },
+        {
+          "calculate": "datum.SeatsPer1000Residents < 50 ? '40-50' : datum.SeatsPer1000Residents < 60 ? '50-60' : datum.SeatsPer1000Residents < 90 ? '60-90' : '90+'",
+          "as": "CapacityRange"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#808080",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "color": {
+          "field": "CapacityRange",
+          "type": "ordinal",
+          "title": "Seats per 1,000 residents",
+          "sort": [
+            "40-50",
+            "50-60",
+            "60-90",
+            "90+"
+          ],
+          "scale": {
+            "domain": [
+              "40-50",
+              "50-60",
+              "60-90",
+              "90+"
+            ],
+            "range": [
+              "#feedde",
+              "#fdbe85",
+              "#fd8d3c",
+              "#d94701"
+            ]
+          },
+          "legend": {
+            "symbolType": "square",
+            "orient": "top-left"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "State",
+            "type": "nominal"
+          },
+          {
+            "field": "TotalCapacity",
+            "type": "quantitative",
+            "title": "Total listed stadium capacity",
+            "format": ","
+          },
+          {
+            "field": "Residents",
+            "type": "quantitative",
+            "format": ","
+          },
+          {
+            "field": "CapacityRange",
+            "type": "nominal",
+            "title": "Capacity range"
+          },
+          {
+            "field": "SeatsPer1000Residents",
+            "type": "quantitative",
+            "title": "Seats per 1,000 residents",
+            "format": ".1f"
+          }
+        ]
+      }
+    }
+  ],
+  "autosize": {
+    "type": "fit",
+    "contains": "padding",
+    "resize": true
+  },
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "font": "DM Sans",
+    "title": {
+      "font": "Manrope",
+      "fontSize": 17,
+      "fontWeight": 700,
+      "color": "#172b35",
+      "subtitleFont": "DM Sans",
+      "subtitleFontSize": 12,
+      "subtitleColor": "#5c6c73"
+    },
+    "axis": {
+      "labelFont": "DM Sans",
+      "labelFontSize": 11,
+      "labelColor": "#5c6c73",
+      "titleFont": "DM Sans",
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "titleColor": "#172b35"
+    },
+    "legend": {
+      "labelFont": "DM Sans",
+      "labelFontSize": 11,
+      "labelColor": "#172b35",
+      "titleFont": "DM Sans",
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "titleColor": "#172b35"
+    },
+    "header": {
+      "labelFont": "DM Sans",
+      "labelFontSize": 11,
+      "labelColor": "#5c6c73",
+      "titleFont": "DM Sans",
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "titleColor": "#172b35"
+    }
+  }
 }

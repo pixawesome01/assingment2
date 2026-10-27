@@ -1,48 +1,136 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 420,
-    "height": 360,
-    "title": "Share of Stadiums by Type",
-    "data": {
-        "url": "data/all_stadiums.csv",
-        "format": {"type": "csv"}
-    },
-    "transform": [
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 360,
+  "data": {
+    "url": "data/all_stadiums.csv",
+    "format": {
+      "type": "csv"
+    }
+  },
+  "transform": [
+    {
+      "aggregate": [
         {
-            "aggregate": [{"op": "count", "as": "StadiumCount"}],
-            "groupby": ["Shape"]
-        },
-        {
-            "joinaggregate": [{"op": "sum", "field": "StadiumCount", "as": "TotalStadiums"}]
-        },
-        {
-            "calculate": "datum.StadiumCount / datum.TotalStadiums",
-            "as": "Share"
+          "op": "count",
+          "as": "StadiumCount"
         }
-    ],
-    "mark": {
-        "type": "arc",
-        "innerRadius": 90,
-        "outerRadius": 155,
-        "stroke": "white",
-        "strokeWidth": 2
+      ],
+      "groupby": [
+        "Shape"
+      ]
     },
-    "encoding": {
-        "theta": {"field": "StadiumCount", "type": "quantitative"},
-        "color": {
-            "field": "Shape",
-            "type": "nominal",
-            "title": "Stadium type",
-            "scale": {
-                "domain": ["Oval", "Rectangular", "Diamond", "Convertible", "Rectangular, with Athletics track"],
-                "range": ["#4e79a7", "#f28e2b", "#59a14f", "#e15759", "#b07aa1"]
-            }
-        },
-        "tooltip": [
-            {"field": "Shape", "type": "nominal", "title": "Stadium type"},
-            {"field": "StadiumCount", "type": "quantitative", "title": "Stadiums"},
-            {"field": "Share", "type": "quantitative", "title": "Share", "format": ".1%"}
+    {
+      "joinaggregate": [
+        {
+          "op": "sum",
+          "field": "StadiumCount",
+          "as": "TotalStadiums"
+        }
+      ]
+    },
+    {
+      "calculate": "datum.StadiumCount / datum.TotalStadiums",
+      "as": "Share"
+    }
+  ],
+  "mark": {
+    "type": "arc",
+    "innerRadius": 90,
+    "outerRadius": 155,
+    "stroke": "white",
+    "strokeWidth": 2
+  },
+  "encoding": {
+    "theta": {
+      "field": "StadiumCount",
+      "type": "quantitative"
+    },
+    "color": {
+      "field": "Shape",
+      "type": "nominal",
+      "title": "Stadium type",
+      "scale": {
+        "domain": [
+          "Oval",
+          "Rectangular",
+          "Diamond",
+          "Convertible",
+          "Rectangular, with Athletics track"
+        ],
+        "range": [
+          "#4e79a7",
+          "#f28e2b",
+          "#59a14f",
+          "#e15759",
+          "#b07aa1"
         ]
+      }
     },
-    "view": {"stroke": null}
+    "tooltip": [
+      {
+        "field": "Shape",
+        "type": "nominal",
+        "title": "Stadium type"
+      },
+      {
+        "field": "StadiumCount",
+        "type": "quantitative",
+        "title": "Stadiums"
+      },
+      {
+        "field": "Share",
+        "type": "quantitative",
+        "title": "Share",
+        "format": ".1%"
+      }
+    ]
+  },
+  "view": {
+    "stroke": null
+  },
+  "autosize": {
+    "type": "fit",
+    "contains": "padding",
+    "resize": true
+  },
+  "config": {
+    "font": "DM Sans",
+    "title": {
+      "font": "Manrope",
+      "fontSize": 17,
+      "fontWeight": 700,
+      "color": "#172b35",
+      "subtitleFont": "DM Sans",
+      "subtitleFontSize": 12,
+      "subtitleColor": "#5c6c73"
+    },
+    "axis": {
+      "labelFont": "DM Sans",
+      "labelFontSize": 11,
+      "labelColor": "#5c6c73",
+      "titleFont": "DM Sans",
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "titleColor": "#172b35"
+    },
+    "legend": {
+      "labelFont": "DM Sans",
+      "labelFontSize": 11,
+      "labelColor": "#172b35",
+      "titleFont": "DM Sans",
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "titleColor": "#172b35"
+    },
+    "header": {
+      "labelFont": "DM Sans",
+      "labelFontSize": 11,
+      "labelColor": "#5c6c73",
+      "titleFont": "DM Sans",
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "titleColor": "#172b35"
+    }
+  }
 }

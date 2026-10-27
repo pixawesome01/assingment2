@@ -8,27 +8,29 @@ var vg7 = "vizzes/stadium_mix_by_state.json"
 var vg8 = "vizzes/attendance_dot_plot.json"
 var vg9 = "vizzes/stadium_type_donut.json"
 var vg10 = "vizzes/stadium_type_sport_heatmap.json"
+var embedOptions = {actions: false}
 
-vegaEmbed("#vis1", vg1).catch(console.error);
-vegaEmbed("#vis2", vg2).catch(console.error);
-vegaEmbed("#vis4", vg4).catch(console.error);
-vegaEmbed("#vis5", vg5).catch(console.error);
-vegaEmbed("#vis6", vg6).catch(console.error);
-vegaEmbed("#vis7", vg7).catch(console.error);
-vegaEmbed("#vis8", vg8).catch(console.error);
-vegaEmbed("#vis9", vg9).catch(console.error);
-vegaEmbed("#vis10", vg10).catch(console.error);
-vegaEmbed("#vis3", vg3).then(({view}) => {
-	const canvas = document.querySelector("#vis3 canvas");
-	if (!canvas) return;
+vegaEmbed("#vis1", vg9, embedOptions).catch(console.error);
+vegaEmbed("#vis2", vg10, embedOptions).catch(console.error);
+vegaEmbed("#vis3", vg5, embedOptions).catch(console.error);
+vegaEmbed("#vis5", vg7, embedOptions).catch(console.error);
+vegaEmbed("#vis6", vg2, embedOptions).catch(console.error);
+vegaEmbed("#vis7", vg4, embedOptions).catch(console.error);
+vegaEmbed("#vis8", vg1, embedOptions).catch(console.error);
+vegaEmbed("#vis9", vg8, embedOptions).catch(console.error);
+vegaEmbed("#vis10", vg6, embedOptions).catch(console.error);
+
+vegaEmbed("#vis4", vg3, embedOptions).then(({view}) => {
+	const mapSurface = document.querySelector("#vis4 canvas, #vis4 svg");
+	if (!mapSurface) return;
 
 	let dragStart;
-	canvas.style.touchAction = "none";
-	canvas.style.cursor = "grab";
+	mapSurface.style.touchAction = "none";
+	mapSurface.style.cursor = "grab";
 
-	canvas.addEventListener("pointerdown", event => {
+	mapSurface.addEventListener("pointerdown", event => {
 		if (event.button !== 0) return;
-		const bounds = canvas.getBoundingClientRect();
+		const bounds = mapSurface.getBoundingClientRect();
 		const marks = [
 			...view.data("layer_0_marks"),
 			...view.data("layer_1_marks")
@@ -43,17 +45,17 @@ vegaEmbed("#vis3", vg3).then(({view}) => {
 			x: event.clientX,
 			y: event.clientY,
 			translate: view.signal("mapTranslate"),
-			scaleX: canvas.width / bounds.width,
-			scaleY: canvas.height / bounds.height,
+			scaleX: view.width() / bounds.width,
+			scaleY: view.height() / bounds.height,
 			mapBounds,
 			mapWidth: view.width(),
 			mapHeight: view.height()
 		};
-		canvas.setPointerCapture(event.pointerId);
-		canvas.style.cursor = "grabbing";
+		mapSurface.setPointerCapture(event.pointerId);
+		mapSurface.style.cursor = "grabbing";
 	});
 
-	canvas.addEventListener("pointermove", event => {
+	mapSurface.addEventListener("pointermove", event => {
 		if (!dragStart) return;
 		const deltaX = (event.clientX - dragStart.x) * dragStart.scaleX;
 		const deltaY = (event.clientY - dragStart.y) * dragStart.scaleY;
@@ -72,8 +74,8 @@ vegaEmbed("#vis3", vg3).then(({view}) => {
 
 	const stopDragging = () => {
 		dragStart = undefined;
-		canvas.style.cursor = "grab";
+		mapSurface.style.cursor = "grab";
 	};
-	canvas.addEventListener("pointerup", stopDragging);
-	canvas.addEventListener("pointercancel", stopDragging);
+	mapSurface.addEventListener("pointerup", stopDragging);
+	mapSurface.addEventListener("pointercancel", stopDragging);
 }).catch(console.error);
