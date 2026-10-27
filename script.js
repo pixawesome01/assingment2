@@ -1,13 +1,23 @@
-var vg1 = "vizzes/afl_games_by_state.json"
+var vg1 = "vizzes/venue_capacity_bubble.json"
 var vg2 = "vizzes/stadium_states_map.json"
 var vg3 = "vizzes/stadium_type_map.json"
 var vg4 = "vizzes/stadium_per_capita_map.json"
 var vg5 = "vizzes/average_capacity_by_type.json"
+var vg6 = "vizzes/afl_venue_timeline.json"
+var vg7 = "vizzes/stadium_mix_by_state.json"
+var vg8 = "vizzes/attendance_dot_plot.json"
+var vg9 = "vizzes/stadium_type_donut.json"
+var vg10 = "vizzes/stadium_type_sport_heatmap.json"
 
 vegaEmbed("#vis1", vg1).catch(console.error);
 vegaEmbed("#vis2", vg2).catch(console.error);
 vegaEmbed("#vis4", vg4).catch(console.error);
 vegaEmbed("#vis5", vg5).catch(console.error);
+vegaEmbed("#vis6", vg6).catch(console.error);
+vegaEmbed("#vis7", vg7).catch(console.error);
+vegaEmbed("#vis8", vg8).catch(console.error);
+vegaEmbed("#vis9", vg9).catch(console.error);
+vegaEmbed("#vis10", vg10).catch(console.error);
 vegaEmbed("#vis3", vg3).then(({view}) => {
 	const canvas = document.querySelector("#vis3 canvas");
 	if (!canvas) return;

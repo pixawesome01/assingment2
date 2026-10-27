@@ -1,0 +1,80 @@
+Stadium,Capacity,AverageAttendance,Events,Sport,AttendancePercent
+Perth Stadium (Optus Stadium),61266,41656,10,Cricket,68.0
+Sydney Cricket Ground,48000,34141,12,Cricket,71.1
+Melbourne Cricket Ground,100024,58038,7,Cricket,58.0
+Adelaide Oval,53583,33237,12,Cricket,62.0
+Brisbane Cricket Ground,42000,31837,10,Cricket,75.8
+Docklands Stadium(Marvel Stadium),56347,28901,3,Cricket,51.3
+Bellerive Oval (Ninja Stadium),19500,6125,12,Cricket,31.4
+Sydney Showground Stadium (ENGIE Stadium),24000,14545,4,Cricket,60.6
+Manuka Oval,13550,9060,4,Cricket,66.9
+WACA,20000,3035,8,Cricket,15.2
+Carrara Stadium (People First Stadium),24526,20470,1,Cricket,83.5
+Kardinia Park (GMHBA Stadium),40000,10155,2,Cricket,25.4
+Marrara Oval,14000,8632,2,Cricket,61.7
+North Sydney Oval,16000,2451,5,Cricket,15.3
+Cazaly's Stadium,12000,9567,1,Cricket,79.7
+Allan Border Field,4500,1616,4,Cricket,35.9
+Drummoyne Oval,5000,1211,4,Cricket,24.2
+Karen Rolton Oval,5000,1129,3,Cricket,22.6
+Melbourne Cricket Ground,100024,61114,51,Afl,61.1
+Docklands Stadium(Marvel Stadium),56347,31169,44,Afl,55.3
+Adelaide Oval,53583,41952,30,Afl,78.3
+Perth Stadium (Optus Stadium),61266,43162,26,Afl,70.5
+Sydney Cricket Ground,48000,34281,11,Afl,71.4
+Brisbane Cricket Ground,42000,31101,12,Afl,74.1
+Kardinia Park (GMHBA Stadium),40000,19316,17,Afl,48.3
+Carrara Stadium (People First Stadium),24526,11383,14,Afl,46.4
+Sydney Showground Stadium (ENGIE Stadium),24000,13325,9,Afl,55.5
+York Park (University of Tasmania Stadium),21000,9940,6,Afl,47.3
+Manuka Oval,13550,7568,6,Afl,55.9
+Marrara Oval,14000,9341,3,Afl,66.7
+Whitten Oval,12000,3262,6,Afl,27.2
+Bellerive Oval (Ninja Stadium),19500,9286,2,Afl,47.6
+Fremantle Oval,17500,2239,6,Afl,12.8
+Casey Fields,12000,1909,5,Afl,15.9
+Marrara Oval,14000,6721,1,Afl,48.0
+North Sydney Oval,16000,4126,1,Afl,25.8
+Cazaly's Stadium,12000,2017,1,Afl,16.8
+North Hobart Oval,18000,1377,1,Afl,7.6
+Lang Park (Suncorp Stadium),52500,37824,28,Rugby League,72.0
+Stadium Australia (Accor Stadium),83500,28725,21,Rugby League,34.4
+Sydney Football Stadium(Allianz Stadium),45000,24799,20,Rugby League,55.1
+Western Sydney Stadium (CommBank Stadium),30000,17602,28,Rugby League,58.7
+Newcastle International Sports Centre(McDonald Jones Stadium),33000,17692,16,Rugby League,53.6
+North Queensland Stadium (Queensland Country Bank Stadium),25000,16880,14,Rugby League,67.5
+Robina Stadium (Cbus Super Stadium),27400,15393,14,Rugby League,56.2
+Melbourne Rectangular Stadium (AAMI Park),30050,19462,11,Rugby League,64.8
+Brookvale Oval (4 Pines Park),23000,15801,12,Rugby League,68.7
+Canberra Stadium (GIO Stadium Canberra),25011,13082,14,Rugby League,52.3
+Melbourne Cricket Ground,100024,91671,1,Rugby League,91.6
+Leichhardt Oval,20000,10086,6,Rugby League,50.4
+Perth Rectangular Stadium (HBF Park),20500,15519,3,Rugby League,75.7
+Central Coast Stadium(Polytec Stadium),20059,11047,4,Rugby League,55.1
+Perth Stadium (Optus Stadium),61266,33404,1,Rugby League,54.5
+Marrara Oval,14000,12570,1,Rugby League,89.8
+Sunshine Coast Stadium,12000,10062,1,Rugby League,83.9
+Lang Park (Suncorp Stadium),52500,19404,8,Rugby Union,37.0
+Sydney Football Stadium(Allianz Stadium),45000,17317,8,Rugby Union,38.5
+Stadium Australia (Accor Stadium),83500,73399,1,Rugby Union,87.9
+Perth Stadium (Optus Stadium),61266,54678,1,Rugby Union,89.2
+Perth Rectangular Stadium (HBF Park),20500,7799,7,Rugby Union,38.0
+Canberra Stadium (GIO Stadium Canberra),25011,7621,7,Rugby Union,30.5
+North Queensland Stadium (Queensland Country Bank Stadium),25000,18076,1,Rugby Union,72.3
+Newcastle International Sports Centre(McDonald Jones Stadium),33000,11021,1,Rugby Union,33.4
+Sunshine Coast Stadium,12000,5508,1,Rugby Union,45.9
+Perth Stadium (Optus Stadium),61266,51318,2,Football,83.8
+Sydney Football Stadium(Allianz Stadium),45000,22297,4,Football,49.5
+Stadium Australia (Accor Stadium),83500,80363,1,Football,96.2
+Lang Park (Suncorp Stadium),52500,29460,2,Football,56.1
+Melbourne Rectangular Stadium (AAMI Park),30050,17039,3,Football,56.7
+North Queensland Stadium (Queensland Country Bank Stadium),25000,25440,1,Football,101.8
+Lakeside Stadium,12000,3774,5,Football,31.4
+Perth Rectangular Stadium (HBF Park),20500,15352,1,Football,74.9
+Newcastle International Sports Centre(McDonald Jones Stadium),33000,5256,2,Football,15.9
+Hindmarsh Stadium,16500,4944,2,Football,30.0
+Central Coast Stadium(Polytec Stadium),20059,4871,2,Football,24.3
+Western Sydney Stadium (CommBank Stadium),30000,8283,1,Football,27.6
+Leichhardt Oval,20000,1475,2,Football,7.4
+McKellar Park,3500,1948,1,Football,55.7
+Barlow Park,18000,1010,1,Football,5.6

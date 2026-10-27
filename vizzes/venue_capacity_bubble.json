@@ -1,0 +1,64 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 650,
+    "height": 440,
+    "title": {
+        "text": "Venue Capacity and Average Attendance",
+        "subtitle": "Bubble size represents event count; 79 stadium-sport records matched to capacities"
+    },
+    "data": {
+        "url": "data/attendance_capacity_bubbles.csv",
+        "format": {
+            "type": "csv",
+            "parse": {
+                "Capacity": "number",
+                "AverageAttendance": "number",
+                "Events": "number",
+                "AttendancePercent": "number"
+            }
+        }
+    },
+    "transform": [
+        {"calculate": "datum.Sport === 'Afl' ? 'AFL' : datum.Sport", "as": "SportType"}
+    ],
+    "mark": {
+        "type": "circle",
+        "filled": true,
+        "opacity": 0.78,
+        "stroke": "white",
+        "strokeWidth": 1
+    },
+    "encoding": {
+        "x": {
+            "field": "Capacity",
+            "type": "quantitative",
+            "axis": {"title": "Stadium capacity (seats)", "format": ",.0f"}
+        },
+        "y": {
+            "field": "AverageAttendance",
+            "type": "quantitative",
+            "axis": {"title": "Average attendance per event", "format": ",.0f"}
+        },
+        "size": {
+            "field": "Events",
+            "type": "quantitative",
+            "title": "Events",
+            "scale": {"range": [25, 650]},
+            "legend": {"format": ",.0f"}
+        },
+        "color": {
+            "field": "SportType",
+            "type": "nominal",
+            "title": "Sport",
+            "scale": {"scheme": "tableau10"}
+        },
+        "tooltip": [
+            {"field": "Stadium", "type": "nominal", "title": "Stadium"},
+            {"field": "SportType", "type": "nominal", "title": "Sport"},
+            {"field": "Capacity", "type": "quantitative", "title": "Capacity", "format": ","},
+            {"field": "AverageAttendance", "type": "quantitative", "title": "Average attendance", "format": ","},
+            {"field": "AttendancePercent", "type": "quantitative", "title": "Average attendance as capacity", "format": ".1f"},
+            {"field": "Events", "type": "quantitative", "format": ","}
+        ]
+    }
+}

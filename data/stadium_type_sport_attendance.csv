@@ -1,0 +1,11 @@
+Shape,Sport,MatchedVenues,EventCount,TotalAttendance,AverageAttendance
+Convertible,AFL,1,1,1377,1377
+Oval,AFL,17,233,8098928,34759.3
+Oval,Cricket,17,102,2302889,22577.3
+Oval,Football,1,2,102635,51317.5
+Oval,Rugby League,3,3,137645,45881.7
+Oval,Rugby Union,1,1,54678,54678
+Rectangular,Football,12,22,284350,12925
+Rectangular,Rugby League,13,171,3530937,20648.8
+Rectangular,Rugby Union,7,33,436309,13221.5
+"Rectangular, with Athletics track",Football,1,5,18871,3774.2

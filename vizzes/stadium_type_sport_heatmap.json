@@ -1,0 +1,52 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 600,
+    "height": 280,
+    "title": {
+        "text": "Average Attendance by Stadium Type and Sport",
+        "subtitle": "Event-weighted average; blank cells have no matched attendance records"
+    },
+    "data": {
+        "url": "data/stadium_type_sport_attendance.csv",
+        "format": {
+            "type": "csv",
+            "parse": {
+                "MatchedVenues": "number",
+                "EventCount": "number",
+                "TotalAttendance": "number",
+                "AverageAttendance": "number"
+            }
+        }
+    },
+    "mark": {"type": "rect", "stroke": "white", "strokeWidth": 2},
+    "encoding": {
+        "x": {
+            "field": "Sport",
+            "type": "nominal",
+            "sort": ["AFL", "Cricket", "Football", "Rugby League", "Rugby Union"],
+            "axis": {"title": "Sport", "labelAngle": -25}
+        },
+        "y": {
+            "field": "Shape",
+            "type": "nominal",
+            "sort": ["Oval", "Rectangular", "Convertible", "Rectangular, with Athletics track"],
+            "scale": {
+                "domain": ["Oval", "Rectangular", "Convertible", "Rectangular, with Athletics track"]
+            },
+            "axis": {"title": "Stadium type", "labelLimit": 230}
+        },
+        "color": {
+            "field": "AverageAttendance",
+            "type": "quantitative",
+            "title": "Average attendance",
+            "scale": {"scheme": "oranges"},
+            "legend": {"format": ",.0f"}
+        },
+        "tooltip": [
+            {"field": "Shape", "type": "nominal", "title": "Stadium type"},
+            {"field": "Sport", "type": "nominal"},
+            {"field": "AverageAttendance", "type": "quantitative", "title": "Event-weighted average attendance", "format": ",.0f"},
+            {"field": "EventCount", "type": "quantitative", "title": "Events"}
+        ]
+    }
+}
